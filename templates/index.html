@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Azure SnapShare</title>
+</head>
+<body>
+    <h1>My Azure SnapShare Gallery</h1>
+    <hr>
+    <div style="border: 1px solid #ccc; padding: 20px; margin-bottom: 20px;">
+    <h2>Add a New Memory</h2>
+    <form action="/add" method="POST" enctype="multipart/form-data">
+        <input type="text" name="title" placeholder="Where did you go?" required><br><br>
+        <textarea name="description" placeholder="Describe the trip..." required></textarea><br><br>
+        <input type="file" name="photo" accept="image/*"><br><br>
+        <button type="submit">Save to Azure</button>
+    </form>
+</div>
+    {% for memory in memories %}
+        <div>
+            <a href="/delete/{{ memory.id }}" style="color: red;">[Delete This Memory]</a>
+            <h3>{{ memory.title }}</h3>
+            <p>{{ memory.description }}</p>
+            <img src="{{ memory.image_url }}" width="200">
+        </div>
+    {% endfor %}
+</body>
+</html>
