@@ -1,0 +1,2 @@
+# AzureSnapSharePublic
+project for Azure
